@@ -1,0 +1,25 @@
+RAM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+tampung                                                           0x0166      16
+m2                                                                0x0176       2
+p                                                                 0x0178       2
+r                                                                 0x017A       2
+_seed                                                             0x017C       4
+_base_y                                                           0x0180       4
+_lcd_x                                                            0x0184       1
+_lcd_y                                                            0x0185       1
+_lcd_maxx                                                         0x0186       1
+
+EEPROM Allocation
+Variable                                                          Address   Size
+--------------------------------------------------------------------------------
+
+Register Allocation
+Variable                                                          Register  Size
+--------------------------------------------------------------------------------
+ms1                                                               R4,R5        2
+ms2                                                               R6,R7        2
+s1                                                                R8,R9        2
+s2                                                                R10,R11      2
+m1                                                                R12,R13      2

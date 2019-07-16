@@ -1,0 +1,211 @@
+/*****************************************************
+
+This program was produced by the
+
+CodeWizardAVR V2.05.0 Professional
+
+Automatic Program Generator
+
+© Copyright 1998-2010 Pavel Haiduc, HP InfoTech s.r.l.
+
+http://www.hpinfotech.com
+
+Project : papan skor puluhan
+
+Version : V0.1
+
+Date : 04/2/2015
+
+Author : Handril Satriyan purnama
+
+Company : RELiF.Inc
+Comments:———————
+
+Chip type : ATmega16
+
+Program type : Application
+
+AVR Core Clock frequency: 8,000000 MHz
+
+Memory model : Small
+
+External RAM size : 0
+
+Data Stack size : 256
+
+*****************************************************/
+
+#include <mega16.h>
+
+#include <delay.h>
+
+// Declare your global variables here
+
+unsigned char bil[10]=
+
+{0xc0,0xf9,0xa4,0xb0,0x99,0x92,0x82,0xf8,0x80,0x90};
+
+char ribu=0;
+
+signed char ratus=0;
+
+char puluh=0;
+
+signed char satu=0;
+
+void tampil (void)
+
+{
+
+PORTD=0x01;
+
+PORTC=bil[ribu];
+
+delay_ms(2);
+
+PORTD=0x02;
+
+PORTC=bil[ratus];
+
+delay_ms(2);
+
+PORTD=0x04;
+
+PORTC=bil[puluh] ;
+
+delay_ms(2);
+
+PORTD=0x08;
+
+PORTC=bil[satu] ;
+
+delay_ms(2);
+
+}
+
+void run()
+
+{
+
+tampil();
+
+{
+
+if(!PINB.0)
+
+{
+
+while(!PINB.0){tampil();}
+
+if(!ratus & !ribu)
+
+{ratus=0; ribu=0;}
+
+else{
+
+ratus-;
+
+if(ratus<0)
+
+{
+
+ribu–;
+
+ratus=9;
+
+}}}
+
+else if(!PINB.1)
+
+{
+
+while(!PINB.1){ tampil();}
+
+ratus++;
+
+if(ratus>9)
+
+{
+
+ratus=0;
+
+ribu++;
+
+}}
+
+else if(!PINB.2)
+
+{
+
+while(!PINB.2){tampil();}
+
+if(!satu & !puluh)
+
+{satu=0; puluh=0;}
+
+else{
+
+satu–;
+
+if(satu<0)
+
+{
+
+puluh–;
+
+satu=9;
+
+}}}
+
+else if(!PINB.3)
+
+{
+
+while(!PINB.3){ tampil();}
+
+satu++;
+
+if(satu>9)
+
+{
+
+satu=0;
+
+puluh++;
+
+}}
+
+
+}}
+
+void main(void)
+
+{
+
+PORTA=0x00;
+
+DDRA=0x00;
+
+PORTB=0x0F;
+
+DDRB=0x00;
+
+PORTC=0x00;
+
+DDRC=0xFF;
+
+PORTD=0x00;
+
+DDRD=0x0F;
+
+while (1)
+
+{
+
+// Place your code here
+
+run();
+
+}
+
+}

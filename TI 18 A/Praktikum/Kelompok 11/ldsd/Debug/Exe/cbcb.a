@@ -1,0 +1,121 @@
+;/*****************************************************
+;CodeWizardAVR V1.24.8d Professional
+;Chip type : ATmega16
+;*****************************************************/
+;#include &lt;mega16.h&gt;
+;#include &amp;amp;lt;delay.h&amp;amp;gt;
+;#include &amp;amp;lt;lcd.h&amp;amp;gt;
+;#include &amp;amp;lt;stdlib.h&amp;amp;gt;
+;#include &amp;amp;lt;math.h&amp;amp;gt;
+;#define scanKeypad 1
+;#define stopScan 0
+;
+;// Alphanumeric LCD Module functions
+;#asm
+;PCODE: $00000000 VOL: 0
+.equ __lcd_port=0x15 ;PORTC
+;PCODE: $00000001 VOL: 0
+;PCODE: $00000002 VOL: 0
+; 0000 0010 #endasm
+;#include &amp;amp;lt;lcd.h&amp;amp;gt;
+;
+;int bacaKeyPad(void);
+;float kalkulator(void);
+;
+;int operand1 = 0 , operand2 = 0 ;
+;float hasil = 0 ;
+;char kode=0 , bufferLCD[50] ;
+;
+;void main(void)
+; 0000 001B {
+
+	.CSEG
+;PCODE: $00000003 VOL: 0
+; 0000 001C 
+; 0000 001D PORTA=0x00;
+;PCODE: $00000004 VOL: 0
+; 0000 001E DDRA=0x0F;
+;PCODE: $00000005 VOL: 0
+; 0000 001F 
+; 0000 0020 PORTC=0x00;
+;PCODE: $00000006 VOL: 0
+; 0000 0021 DDRC=0x00;
+;PCODE: $00000007 VOL: 0
+; 0000 0022 
+; 0000 0023 lcd_init(20);
+;PCODE: $00000008 VOL: 0
+; 0000 0024 while (1)
+;PCODE: $00000009 VOL: 0
+;PCODE: $0000000A VOL: 0
+; 0000 0025 {
+; 0000 0026 kalkulator();
+;PCODE: $0000000B VOL: 0
+; 0000 0027 };
+;PCODE: $0000000C VOL: 0
+;PCODE: $0000000D VOL: 0
+; 0000 0028 }
+;PCODE: $0000000E VOL: 0
+;PCODE: $0000000F VOL: 0
+;PCODE: $00000010 VOL: 0
+;
+;//==================
+;int bacaKeyPad(void){
+; 0000 002B int bacaKeyPad(void){
+;PCODE: $00000011 VOL: 0
+;PCODE: $00000012 VOL: 0
+; 0000 002C char StatusBaca = scanKeypad ;
+; 0000 002D while(StatusBaca==scanKeypad){
+;PCODE: $00000013 VOL: 0
+;	StatusBaca -> R17
+;PCODE: $00000014 VOL: 0
+;PCODE: $00000015 VOL: 0
+;PCODE: $00000016 VOL: 0
+;PCODE: $00000017 VOL: 0
+;PCODE: $00000018 VOL: 0
+;PCODE: $00000019 VOL: 0
+; 0000 002E 
+; 0000 002F PORTA.0 = 1 ;
+;PCODE: $0000001A VOL: 0
+;PCODE: $0000001B VOL: 0
+; 0000 0030 PORTA.1 = 0 ;
+;PCODE: $0000001C VOL: 0
+;PCODE: $0000001D VOL: 0
+; 0000 0031 PORTA.2 = 0 ;
+;PCODE: $0000001E VOL: 0
+;PCODE: $0000001F VOL: 0
+; 0000 0032 PORTA.3 = 0 ;
+;PCODE: $00000020 VOL: 0
+;PCODE: $00000021 VOL: 0
+; 0000 0033 if(PINA.4 == 1){return 7 ; StatusBaca = stopScan;}
+;PCODE: $00000022 VOL: 0
+;PCODE: $00000023 VOL: 0
+;PCODE: $00000024 VOL: 0
+;PCODE: $00000025 VOL: 0
+;PCODE: $00000026 VOL: 0
+;PCODE: $00000027 VOL: 0
+;PCODE: $00000028 VOL: 0
+;PCODE: $00000029 VOL: 0
+;PCODE: $0000002A VOL: 0
+;PCODE: $0000002B VOL: 0
+;PCODE: $0000002C VOL: 0
+;PCODE: $0000002D VOL: 0
+; 0000 0034 if(PINA.5 == 1){return 8 ; StatusBaca = stopScan;}
+;PCODE: $0000002E VOL: 0
+;PCODE: $0000002F VOL: 0
+;PCODE: $00000030 VOL: 0
+;PCODE: $00000031 VOL: 0
+;PCODE: $00000032 VOL: 0
+;PCODE: $00000033 VOL: 0
+;PCODE: $00000034 VOL: 0
+;PCODE: $00000035 VOL: 0
+;PCODE: $00000036 VOL: 0
+;PCODE: $00000037 VOL: 0
+;PCODE: $00000038 VOL: 0
+;PCODE: $00000039 VOL: 0
+;PCODE: $0000003A VOL: 0
+;if(PINA.6 == 1){return 9 ; StatusBaca = stopScan;}
+; 0000 0035 if(PINA.6 == 1){return 9 ; StatusBaca = 0;}
+;PCODE: $0000003B VOL: 0
+;PCODE: $0000003C VOL: 0
+;PCODE: $0000003D VOL: 0
+;PCODE: $0000003E VOL: 0

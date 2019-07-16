@@ -1,0 +1,6 @@
+VERSION:3 SOURCE_TIMESTAMP:4ED8720A
+NODE:I LEVEL:0 LINE:24 "C:\cvavr2\inc\mega16.h"
+NODE:I LEVEL:0 LINE:25 "C:\cvavr2\inc\delay.h"
+NODE:I LEVEL:0 LINE:27 "C:\cvavr2\inc\alcd.h"
+NODE:V LEVEL:0 LINE:30 "kolom -> R5"
+NODE:F LEVEL:0 LINE:31 "main(void)"
